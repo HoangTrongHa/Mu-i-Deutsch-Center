@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>German Grid - Chinh Phục Tiếng Đức Bài Bản</title>
+<meta content="Chinh phục tiếng Đức từ A1 đến B2 với các khóa học bài bản theo phong cách vở ghi chép. Học cùng giáo viên bản ngữ với lịch trình linh hoạt." name="description"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#579bb1", // Muted Teal
+                        "primary-dark": "#3f7a8c",
+                        "primary-light": "#e0f2f7",
+                        "accent": "#e07a5f", // Terracotta
+                        "accent-hover": "#c86045",
+                        "paper": "#fdfbf7", // Warm White
+                        "paper-dark": "#f4f1ea",
+                        "ink": "#2c3e50", // Dark Blue-Grey
+                        "ink-light": "#64748b",
+                        "grid-line": "rgba(87, 155, 177, 0.1)", // Very light teal for grid
+                    },
+                    fontFamily: {
+                        "display": ["Spline Sans", "sans-serif"],
+                        "handwritten": ["Caveat", "cursive"],
+                    },
+                    borderRadius: {"DEFAULT": "0.5rem", "lg": "1rem", "xl": "1.5rem", "2xl": "2rem", "3xl": "3rem", "full": "9999px"},
+                    boxShadow: {
+                        'soft': '0 10px 40px -10px rgba(0,0,0,0.08)',
+                        'paper': '2px 4px 15px rgba(0,0,0,0.05)',
+                    }
+                },
+            },
+        }
+    </script>
+<style>.notebook-bg {
+            background-color: #fdfbf7;
+            background-image: 
+                linear-gradient(rgba(87, 155, 177, 0.15) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(87, 155, 177, 0.15) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+        .handwritten-note {
+            font-family: 'Caveat', cursive;
+            transform: rotate(-2deg);
+            box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+        }
+        .handwritten-arrow {
+            font-family: 'Caveat', cursive;
+            transform: rotate(5deg);
+        }
+        .paper-shadow {
+            box-shadow: 1px 1px 0 rgba(0,0,0,0.05), 3px 3px 0 rgba(0,0,0,0.05), 5px 5px 0 rgba(0,0,0,0.05);
+        }
+    </style>
+</head>
+<body class="font-display bg-paper text-ink notebook-bg selection:bg-primary/20">
+<div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
+<div class="fixed top-0 left-0 right-0 z-50 px-4 py-4 md:px-10">
+<header class="mx-auto flex max-w-7xl items-center justify-between rounded-full border border-gray-200 bg-white/90 px-6 py-3 backdrop-blur-md shadow-sm">
+<div class="flex items-center gap-3 text-ink">
+<div class="flex items-center justify-center rounded-lg bg-primary/10 p-2 text-primary">
+<span class="material-symbols-outlined text-[24px]">grid_on</span>
+</div>
+<h2 class="text-lg font-bold leading-tight tracking-tight">German Grid</h2>
+</div>
+<nav class="hidden md:flex items-center gap-8">
+<a class="text-sm font-medium text-ink hover:text-primary transition-colors" href="#">Trang chủ</a>
+<a class="text-sm font-medium text-ink-light hover:text-primary transition-colors" href="#levels">Các Khóa Học</a>
+<a class="text-sm font-medium text-ink-light hover:text-primary transition-colors" href="#about">Giới Thiệu</a>
+<a class="text-sm font-medium text-ink-light hover:text-primary transition-colors" href="#blog">Blog</a>
+<a class="text-sm font-medium text-ink-light hover:text-primary transition-colors" href="#contact">Liên Hệ</a>
+</nav>
+<div class="flex items-center gap-4">
+<a class="hidden text-sm font-medium text-ink hover:text-primary md:block" href="#">Đăng Nhập</a>
+<button class="flex cursor-pointer items-center justify-center rounded-full bg-accent px-5 py-2.5 text-white text-sm font-bold leading-normal transition-transform hover:scale-105 hover:bg-accent-hover shadow-md shadow-accent/20">
+<span class="truncate">Học Thử Miễn Phí</span>
+</button>
+</div>
+</header>
+</div>
+<main class="flex-grow pt-24">
+<section class="relative px-4 py-12 md:px-10 md:py-20 lg:py-28">
+<div class="mx-auto flex max-w-7xl flex-col items-center gap-12 lg:flex-row">
+<div class="flex flex-1 flex-col gap-6 text-center lg:text-left">
+<div class="inline-flex w-fit items-center gap-2 self-center rounded-full border border-primary/20 bg-primary/5 px-3 py-1 lg:self-start">
+<span class="relative flex h-2 w-2">
+<span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+<span class="relative inline-flex h-2 w-2 rounded-full bg-accent"></span>
+</span>
+<span class="text-xs font-semibold uppercase tracking-wider text-primary">Mới: Khóa B2 Đã Ra Mắt</span>
+</div>
+<h1 class="font-display text-5xl font-black leading-[1.1] tracking-tight text-ink md:text-6xl lg:text-7xl">
+                            Chinh Phục Tiếng Đức.<br/>
+<span class="text-primary relative inline-block">
+                                Từng Bước
+                                <svg class="absolute -bottom-2 left-0 w-full h-3 text-accent/30 -z-10" preserveAspectRatio="none" viewBox="0 0 100 10">
+<path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" stroke-width="8"></path>
+</svg>
+</span> Vững Chắc.
+                        </h1>
+<p class="mx-auto max-w-2xl text-lg text-ink-light lg:mx-0">
+                            Các khóa học từ A1-B2 được thiết kế bài bản, rõ ràng. Trải nghiệm cảm giác tập trung như viết trên trang vở mới cùng các công cụ học tập hiện đại.
+                        </p>
+<div class="mt-4 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
+<button class="flex h-12 min-w-[160px] items-center justify-center rounded-full bg-accent px-8 text-base font-bold text-white transition-all hover:bg-accent-hover hover:shadow-lg hover:shadow-accent/20">
+                                Đăng Ký Ngay
+                            </button>
+<button class="flex h-12 min-w-[160px] items-center justify-center gap-2 rounded-full border border-ink/10 bg-white px-8 text-base font-bold text-ink transition-all hover:border-primary/50 hover:text-primary hover:bg-primary-light/20">
+<span class="material-symbols-outlined text-[20px]">play_circle</span>
+                                Xem Giáo Trình
+                            </button>
+</div>
+<div class="mt-8 flex items-center justify-center gap-6 text-sm text-ink-light lg:justify-start">
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary">check_circle</span>
+<span>Không cần thẻ tín dụng</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[20px] text-primary">check_circle</span>
+<span>Hoàn tiền trong 14 ngày</span>
+</div>
+</div>
+</div>
+<div class="relative flex flex-1 items-center justify-center lg:justify-end">
+<div class="relative aspect-square w-full max-w-[500px]">
+<div class="absolute inset-0 rotate-3 rounded-[3rem] border-2 border-dashed border-primary/20 bg-white/40 backdrop-blur-sm"></div>
+<div class="absolute inset-0 -rotate-2 rounded-[3rem] border border-gray-200 bg-white shadow-2xl overflow-hidden" data-alt="Học sinh đang học tiếng Đức với vở và máy tính" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5-tN_Mh50RCa0X8CQidhWDd271qrf7zWhH-2R4Hvn52ILEzUtvn87Vvc2o5OtSlnJL7Dp6Owithcv7D_6WmfSnVXJMaZOObrQH9z0X8l1d000H6a6qDD6SSj-A7LXK4VGBmPiF4jIHJXPtu5aepdowtpVTrWuIRzYAX_pvuC9vHnnQFLB6h74qvhAJpGOXPiOewlrvk7-usm_caBEk1XcZzJNhlUmC-ZgFTmvgHAHbOD4Ajfma3tzD_NNURXSZmnSPRSeLgokW_yw'); background-size: cover; background-position: center;">
+<div class="absolute inset-0 bg-gradient-to-t from-ink/60 via-transparent to-transparent opacity-60"></div>
+</div>
+<div class="absolute -bottom-6 -left-6 max-w-[240px] rounded-2xl border border-gray-100 bg-white p-5 shadow-paper md:bottom-10 md:left-0">
+<div class="flex items-center gap-3">
+<div class="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10 text-primary">
+<span class="material-symbols-outlined">school</span>
+</div>
+<div>
+<div class="text-xs font-medium text-ink-light">Tiến độ hiện tại</div>
+<div class="text-sm font-bold text-ink">Trình độ A2: 85%</div>
+</div>
+</div>
+<div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-gray-100">
+<div class="h-full w-[85%] rounded-full bg-primary"></div>
+</div>
+</div>
+<div class="handwritten-note absolute -right-4 top-10 w-40 rotate-6 rounded-lg bg-[#ffffeb] p-4 text-ink shadow-lg md:right-0 border border-yellow-200/50">
+<p class="text-xl font-bold leading-tight text-ink font-handwritten">Bắt đầu ngay!</p>
+<p class="mt-1 text-lg leading-tight text-ink-light font-handwritten">Gia nhập cùng 10k+ học viên.</p>
+<span class="absolute -bottom-8 right-0 text-accent handwritten-arrow text-5xl">
+                                    ↘
+                                </span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-white/50 backdrop-blur-sm px-4 py-16 md:px-10 border-y border-dashed border-primary/20" id="about">
+<div class="mx-auto max-w-7xl">
+<div class="mb-12 text-center md:text-left">
+<h2 class="font-display text-3xl font-bold text-ink md:text-4xl">Tại Sao Chọn Chúng Tôi?</h2>
+<p class="mt-4 max-w-2xl text-ink-light">Phương pháp của chúng tôi kết hợp sự kỷ luật của trường lớp truyền thống với sự linh hoạt của các ứng dụng hiện đại.</p>
+</div>
+<div class="grid grid-cols-1 gap-8 md:grid-cols-3">
+<div class="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 transition-all hover:border-primary/40 hover:shadow-soft">
+<div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-3xl transition-all group-hover:bg-primary/10"></div>
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-light text-primary">
+<span class="material-symbols-outlined text-[32px]">border_all</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-ink">Lộ Trình Bài Bản</h3>
+<p class="text-ink-light">Lộ trình rõ ràng từ A1 đến B2, được sắp xếp khoa học như những dòng kẻ trên trang vở. Bạn sẽ không bao giờ cảm thấy lạc lõng.</p>
+</div>
+<div class="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 transition-all hover:border-primary/40 hover:shadow-soft">
+<div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-accent/5 blur-3xl transition-all group-hover:bg-accent/10"></div>
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-[#fff0eb] text-accent">
+<span class="material-symbols-outlined text-[32px]">face</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-ink">Giáo Viên Bản Ngữ</h3>
+<p class="text-ink-light">Học phát âm chuẩn và văn hóa từ các giáo viên bản ngữ có chứng chỉ, người sẽ trực tiếp sửa bài cho bạn.</p>
+</div>
+<div class="group relative overflow-hidden rounded-3xl border border-gray-100 bg-white p-8 transition-all hover:border-primary/40 hover:shadow-soft">
+<div class="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-primary/5 blur-3xl transition-all group-hover:bg-primary/10"></div>
+<div class="mb-6 inline-flex h-14 w-14 items-center justify-center rounded-2xl bg-primary-light text-primary">
+<span class="material-symbols-outlined text-[32px]">schedule</span>
+</div>
+<h3 class="mb-3 text-xl font-bold text-ink">Lịch Học Linh Hoạt</h3>
+<p class="text-ink-light">Học theo tốc độ của riêng bạn với thư viện video, bài tập trắc nghiệm và sự hỗ trợ từ cộng đồng.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="px-4 py-20 md:px-10" id="levels">
+<div class="mx-auto max-w-7xl">
+<div class="mb-12 flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
+<div>
+<h2 class="font-display text-3xl font-bold text-ink md:text-4xl">Các Cấp Độ Khóa Học</h2>
+<p class="mt-2 text-ink-light">Chọn cấp độ phù hợp với trình độ hiện tại của bạn.</p>
+</div>
+<a class="group flex items-center gap-2 font-bold text-primary hover:text-accent transition-colors" href="#">
+                            Làm Bài Test Đầu Vào
+                            <span class="material-symbols-outlined text-[20px] transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+<div class="group flex flex-col rounded-3xl border border-gray-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-blue-200 hover:shadow-soft paper-shadow">
+<div class="mb-4 flex items-center justify-between">
+<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-blue-50 font-display font-bold text-blue-600 border border-blue-100">A1</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-blue-400 transition-colors">looks_one</span>
+</div>
+<h3 class="text-xl font-bold text-ink">Người Mới Bắt Đầu</h3>
+<p class="mt-2 text-sm text-ink-light">Nền tảng &amp; Cơ bản. Bắt đầu hành trình tại đây.</p>
+<div class="my-4 h-px w-full bg-gray-100"></div>
+<ul class="mb-6 space-y-2 text-sm text-ink-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-blue-500">check</span> Chào hỏi cơ bản</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-blue-500">check</span> Số đếm &amp; Thời gian</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-blue-500">check</span> 8 Tuần</li>
+</ul>
+<button class="mt-auto w-full rounded-xl bg-blue-50 py-3 text-sm font-bold text-blue-700 hover:bg-blue-100 transition-all">Xem Giáo Trình A1</button>
+</div>
+<div class="group flex flex-col rounded-3xl border border-gray-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-green-200 hover:shadow-soft paper-shadow">
+<div class="mb-4 flex items-center justify-between">
+<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-green-50 font-display font-bold text-green-600 border border-green-100">A2</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-green-400 transition-colors">looks_two</span>
+</div>
+<h3 class="text-xl font-bold text-ink">Sơ Cấp</h3>
+<p class="mt-2 text-sm text-ink-light">Giao tiếp hàng ngày. Xây dựng sự tự tin.</p>
+<div class="my-4 h-px w-full bg-gray-100"></div>
+<ul class="mb-6 space-y-2 text-sm text-ink-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-green-500">check</span> Thói quen hàng ngày</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-green-500">check</span> Thì quá khứ</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-green-500">check</span> 10 Tuần</li>
+</ul>
+<button class="mt-auto w-full rounded-xl bg-green-50 py-3 text-sm font-bold text-green-700 hover:bg-green-100 transition-all">Xem Giáo Trình A2</button>
+</div>
+<div class="group flex flex-col rounded-3xl border border-gray-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-yellow-200 hover:shadow-soft paper-shadow">
+<div class="mb-4 flex items-center justify-between">
+<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-yellow-50 font-display font-bold text-yellow-600 border border-yellow-100">B1</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-yellow-400 transition-colors">looks_3</span>
+</div>
+<h3 class="text-xl font-bold text-ink">Trung Cấp</h3>
+<p class="mt-2 text-sm text-ink-light">Sử dụng độc lập. Thảo luận ý kiến.</p>
+<div class="my-4 h-px w-full bg-gray-100"></div>
+<ul class="mb-6 space-y-2 text-sm text-ink-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-yellow-500">check</span> Câu phức</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-yellow-500">check</span> Công việc &amp; Du lịch</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-yellow-500">check</span> 12 Tuần</li>
+</ul>
+<button class="mt-auto w-full rounded-xl bg-yellow-50 py-3 text-sm font-bold text-yellow-700 hover:bg-yellow-100 transition-all">Xem Giáo Trình B1</button>
+</div>
+<div class="group flex flex-col rounded-3xl border border-gray-100 bg-white p-6 transition-all hover:-translate-y-1 hover:border-pink-200 hover:shadow-soft paper-shadow">
+<div class="mb-4 flex items-center justify-between">
+<span class="flex h-12 w-12 items-center justify-center rounded-xl bg-pink-50 font-display font-bold text-pink-600 border border-pink-100">B2</span>
+<span class="material-symbols-outlined text-gray-300 group-hover:text-pink-400 transition-colors">looks_4</span>
+</div>
+<h3 class="text-xl font-bold text-ink">Trung Cao Cấp</h3>
+<p class="mt-2 text-sm text-ink-light">Thành thạo nâng cao. Trình độ chuyên nghiệp.</p>
+<div class="my-4 h-px w-full bg-gray-100"></div>
+<ul class="mb-6 space-y-2 text-sm text-ink-light">
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-pink-500">check</span> Chủ đề trừu tượng</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-pink-500">check</span> Truyền thông bản ngữ</li>
+<li class="flex items-center gap-2"><span class="material-symbols-outlined text-[16px] text-pink-500">check</span> 14 Tuần</li>
+</ul>
+<button class="mt-auto w-full rounded-xl bg-pink-50 py-3 text-sm font-bold text-pink-700 hover:bg-pink-100 transition-all">Xem Giáo Trình B2</button>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-paper-dark px-4 py-20 md:px-10 border-t border-dashed border-primary/20">
+<div class="mx-auto max-w-7xl text-center">
+<h2 class="mb-12 font-display text-3xl font-bold text-ink">Lưu Bút Của Học Viên</h2>
+<div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+<div class="relative rounded-sm bg-[#fff9c4] p-6 text-left shadow-lg transform transition-transform hover:-rotate-1" style="background-image: linear-gradient(#f9fbe7 1px, transparent 1px); background-size: 100% 20px;">
+<div class="absolute -top-3 left-1/2 h-8 w-24 -translate-x-1/2 bg-red-400/40 backdrop-blur-sm rotate-2 shadow-sm"></div>
+<div class="mb-6 flex items-center gap-3">
+<div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white shadow-sm">
+<img alt="Portrait of happy student Sarah" class="h-full w-full object-cover" data-alt="Chân dung học sinh Sarah vui vẻ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbazYIPVHr3e--U1ekq5jZfQWTLzhoHfyLCVSh894le1wjskOpVJ6Leda1cWyR6b5j8oUa67ltB_9YR1ktqOH5uw_eqEZa4KJEQZz1F8jHzzY9SM6IucvZi4RAejuYEzTKHkkkvQygaZTJQXp4H99j_LlgMjg2TVpO26dhO_CT4bUWPyLFEjHUhPD7kxi9T6QTgi0DHRsWOE7o7iPXm5aleOZzWzCw6g5Q_P1JSGa9whO5gpwjmdsz1b1xDABmqDFg9dYGragPgkbI"/>
+</div>
+<div>
+<h4 class="font-bold text-ink font-handwritten text-xl">Sarah Jenkins</h4>
+<p class="text-xs text-ink-light uppercase tracking-wide">Tốt nghiệp B1</p>
+</div>
+</div>
+<p class="font-handwritten text-2xl leading-relaxed text-ink-light">
+                                "Phương pháp 'kẻ ô' thực sự giúp mình sắp xếp ngữ pháp gọn gàng. Mình đã đỗ B1 chỉ sau 3 tháng! Dankeschön!"
+                            </p>
+<div class="mt-6 flex gap-1 text-orange-400">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+</div>
+</div>
+<div class="relative rounded-sm bg-[#e1f5fe] p-6 text-left shadow-lg transform md:translate-y-6 transition-transform hover:rotate-1" style="background-image: linear-gradient(#e0f7fa 1px, transparent 1px); background-size: 100% 20px;">
+<div class="absolute -top-3 left-1/2 h-8 w-24 -translate-x-1/2 bg-blue-400/40 backdrop-blur-sm -rotate-2 shadow-sm"></div>
+<div class="mb-6 flex items-center gap-3">
+<div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white shadow-sm">
+<img alt="Portrait of happy student Mark" class="h-full w-full object-cover" data-alt="Chân dung học sinh Mark vui vẻ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCoeKMoMLlh0zYGGiBFB2qjPdZs2TRF423L1obcyQ2NNuvTGLox6iEy8dV_4D2yTfLsuGwzivb_uvC8gvlg82LIfTPy4IuF25um9qxf8JnUaHt9UlLWYe8rz5uiLiSfIC03vwk8utPNVGbwuGoMg2n86Hf1Gyd17gwuX0YoK_wi3B2eBA4t2re7cDalVubGUmEpVFiVb3zjNTAN6GZQfd2UPfivpK0uQS7lbLW-XPuYYr6Si_96VILjKHKFQQINekF367eTSqgahCor"/>
+</div>
+<div>
+<h4 class="font-bold text-ink font-handwritten text-xl">Mark Davis</h4>
+<p class="text-xs text-ink-light uppercase tracking-wide">Học viên A2</p>
+</div>
+</div>
+<p class="font-handwritten text-2xl leading-relaxed text-ink-light">
+                                "Cuối cùng cũng tìm được khóa học không hề lộn xộn. Video ngắn gọn và dễ hiểu. Rất hợp với lịch trình bận rộn của mình."
+                            </p>
+<div class="mt-6 flex gap-1 text-orange-400">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star_half</span>
+</div>
+</div>
+<div class="relative rounded-sm bg-[#fce4ec] p-6 text-left shadow-lg transform transition-transform hover:-rotate-1" style="background-image: linear-gradient(#f8bbd0 1px, transparent 1px); background-size: 100% 20px;">
+<div class="absolute -top-3 left-1/2 h-8 w-24 -translate-x-1/2 bg-purple-400/40 backdrop-blur-sm rotate-1 shadow-sm"></div>
+<div class="mb-6 flex items-center gap-3">
+<div class="h-12 w-12 overflow-hidden rounded-full border-2 border-white shadow-sm">
+<img alt="Portrait of happy student Elena" class="h-full w-full object-cover" data-alt="Chân dung học sinh Elena vui vẻ" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-mRpnyPkW4EgeVdFY-6NklbfX-DpTI5u1-gK0rvO_J5uCJFedAEoq9To1401d4cDlFCwRCEiitiFh7TVaapawRtQeMrsW7wh2Pzf9FTec8z3QuWnWUQt8SXBvJ7KUAi1v3Ia4pV69ADEurZ8rJzbLr0I-7qEEfV5-VcWhlKecCrdd33yJMKc5Wf3GgJYTwJDHfmjBboINN8q0zRWYxbhb7OXfzvxQ9GPFzWa_0OxORyyesxarTPAslPgSwjawEf5a5YgUd8BwKlW-"/>
+</div>
+<div>
+<h4 class="font-bold text-ink font-handwritten text-xl">Elena Rodriguez</h4>
+<p class="text-xs text-ink-light uppercase tracking-wide">Tốt nghiệp B2</p>
+</div>
+</div>
+<p class="font-handwritten text-2xl leading-relaxed text-ink-light">
+                                "Chuyển đến Berlin thật đáng sợ, nhưng khóa học này đã trang bị cho mình vốn từ cần thiết. Rất khuyến khích cho những ai học nghiêm túc."
+                            </p>
+<div class="mt-6 flex gap-1 text-orange-400">
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+<span class="material-symbols-outlined text-[20px] fill-current">star</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="relative overflow-hidden px-4 py-20">
+<div class="mx-auto max-w-4xl rounded-[3rem] border border-gray-100 bg-white p-10 text-center shadow-xl md:p-16 relative">
+<div class="relative z-10">
+<h2 class="font-display text-4xl font-bold text-ink md:text-5xl">Sẵn sàng lấp đầy ô kiến thức?</h2>
+<p class="mt-6 text-lg text-ink-light">Tham gia cùng hơn 10.000 học viên đang chinh phục tiếng Đức với lộ trình bài bản của chúng tôi.</p>
+<div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+<button class="flex h-14 min-w-[200px] items-center justify-center rounded-full bg-accent px-8 text-lg font-bold text-white transition-all hover:bg-accent-hover hover:scale-105 shadow-lg shadow-accent/20">
+                                Học Thử Miễn Phí
+                            </button>
+<button class="text-sm font-semibold text-ink underline decoration-primary underline-offset-4 hover:text-primary transition-colors">
+                                Trò chuyện với tư vấn viên
+                            </button>
+</div>
+</div>
+<div class="absolute left-1/2 top-1/2 -z-0 h-[300px] w-[300px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-primary/5 blur-[80px]"></div>
+<div class="absolute top-8 left-8 w-8 h-8 border-t-4 border-l-4 border-primary/20 rounded-tl-xl"></div>
+<div class="absolute bottom-8 right-8 w-8 h-8 border-b-4 border-r-4 border-primary/20 rounded-br-xl"></div>
+</div>
+</section>
+</main>
+<footer class="border-t border-gray-200 bg-white pt-16 pb-8">
+<div class="mx-auto max-w-7xl px-4 md:px-10">
+<div class="grid grid-cols-1 gap-12 md:grid-cols-4">
+<div class="col-span-1 md:col-span-1">
+<div class="flex items-center gap-2 text-ink mb-4">
+<span class="material-symbols-outlined text-primary text-[28px]">grid_on</span>
+<span class="text-xl font-bold">German Grid</span>
+</div>
+<p class="text-sm text-ink-light">Giúp việc học tiếng Đức trở nên bài bản, hiệu quả và thú vị.</p>
+<div class="mt-6 flex gap-4">
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="sr-only">Facebook</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"></path></svg></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="sr-only">Instagram</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path clip-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772 4.902 4.902 0 011.772-1.153c.636-.247 1.363-.416 2.427-.465 1.067-.047 1.409-.06 3.809-.06h.63zm1.673 5.378a3.07 3.07 0 11-3.07 3.07 3.07 3.07 0 013.07-3.07zm0 1.565a1.505 1.505 0 101.505 1.505 1.505 1.505 0 00-1.505-1.505zm4.998-3.05a1.096 1.096 0 11-1.096 1.096 1.096 1.096 0 011.096-1.096z" fill-rule="evenodd"></path></svg></a>
+<a class="text-gray-400 hover:text-primary transition-colors" href="#"><span class="sr-only">Twitter</span><svg class="h-6 w-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8.29 20.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0022 5.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.072 4.072 0 012.8 9.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 012 18.407a11.616 11.616 0 006.29 1.84"></path></svg></a>
+</div>
+</div>
+<div>
+<h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-ink">Các Khóa Học</h4>
+<ul class="space-y-2 text-sm text-ink-light">
+<li><a class="hover:text-primary transition-colors" href="#">Trình độ A1 (Cơ bản)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Trình độ A2 (Sơ cấp)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Trình độ B1 (Trung cấp)</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Trình độ B2 (Trung cao)</a></li>
+</ul>
+</div>
+<div>
+<h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-ink">Công Ty</h4>
+<ul class="space-y-2 text-sm text-ink-light">
+<li><a class="hover:text-primary transition-colors" href="#">Giới thiệu</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Blog</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Tuyển dụng</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Liên hệ</a></li>
+</ul>
+</div>
+<div>
+<h4 class="mb-4 text-sm font-bold uppercase tracking-wider text-ink">Pháp Lý</h4>
+<ul class="space-y-2 text-sm text-ink-light">
+<li><a class="hover:text-primary transition-colors" href="#">Chính sách bảo mật</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Điều khoản dịch vụ</a></li>
+<li><a class="hover:text-primary transition-colors" href="#">Chính sách Cookie</a></li>
+</ul>
+</div>
+</div>
+<div class="mt-16 border-t border-gray-100 pt-8 text-center text-xs text-ink-light">
+<p>© 2023 Trường Ngôn Ngữ German Grid. Bảo lưu mọi quyền.</p>
+</div>
+</div>
+</footer>
+</div>
+
+</body></html>

@@ -1,0 +1,32 @@
+<template>
+  <div>
+    <NuxtPage />
+  </div>
+</template>
+
+<style>
+@import "tailwindcss";
+
+.notebook-bg {
+  background-color: #fdfbf7;
+  background-image: 
+    linear-gradient(rgba(87, 155, 177, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(87, 155, 177, 0.15) 1px, transparent 1px);
+  background-size: 32px 32px;
+}
+
+.handwritten-note {
+  font-family: 'Caveat', cursive;
+  transform: rotate(-2deg);
+  box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
+}
+
+.handwritten-arrow {
+  font-family: 'Caveat', cursive;
+  transform: rotate(5deg);
+}
+
+.paper-shadow {
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.05), 3px 3px 0 rgba(0,0,0,0.05), 5px 5px 0 rgba(0,0,0,0.05);
+}
+</style>
