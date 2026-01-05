@@ -1,4 +1,4 @@
-# German Grid - Nuxt App (Atomic Design)
+# Muối Deutsch Center - Nuxt App (Atomic Design)
 
 Ứng dụng Nuxt được xây dựng theo mô hình Atomic Design, chuyển đổi từ file HTML tĩnh.
 

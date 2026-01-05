@@ -3,7 +3,7 @@
     <div class="flex items-center justify-center rounded-lg bg-primary/10 p-2 text-primary">
       <Icon :size="24">grid_on</Icon>
     </div>
-    <h2 class="text-lg font-bold leading-tight tracking-tight">German Grid</h2>
+    <h2 class="text-lg font-bold leading-tight tracking-tight">Muối Deutsch Center</h2>
   </div>
 </template>
 

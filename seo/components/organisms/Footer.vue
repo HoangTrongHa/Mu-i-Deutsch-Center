@@ -6,7 +6,7 @@
         <div class="col-span-1 md:col-span-1">
           <div class="flex items-center gap-2 text-ink mb-4">
             <Icon :size="28" class="text-primary">grid_on</Icon>
-            <span class="text-xl font-bold">German Grid</span>
+            <span class="text-xl font-bold">Muối Deutsch Center</span>
           </div>
           <p class="text-sm text-ink-light">
             Giúp việc học tiếng Đức trở nên bài bản, hiệu quả và thú vị.
@@ -67,7 +67,7 @@
       </div>
 
       <div class="mt-16 border-t border-gray-100 pt-8 text-center text-xs text-ink-light">
-        <p>© 2023 Trường Ngôn Ngữ German Grid. Bảo lưu mọi quyền.</p>
+        <p>© 2023 Trường Ngôn Ngữ Muối Deutsch Center. Bảo lưu mọi quyền.</p>
       </div>
     </div>
   </footer>

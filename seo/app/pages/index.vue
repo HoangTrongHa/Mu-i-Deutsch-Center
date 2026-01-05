@@ -24,7 +24,7 @@ import CTASection from '../../components/organisms/CTASection.vue'
 import Footer from '../../components/organisms/Footer.vue'
 
 useHead({
-  title: 'German Grid - Chinh Phục Tiếng Đức Bài Bản',
+  title: 'Muối Deutsch Center - Chinh Phục Tiếng Đức Bài Bản',
   meta: [
     {
       name: 'description',
