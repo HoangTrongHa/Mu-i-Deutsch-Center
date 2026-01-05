@@ -25,9 +25,9 @@ const tag = computed(() => `h${numericLevel.value}`)
 
 const headingClasses = computed(() => {
   const variants: Record<HeadingVariant, string> = {
-    display: 'font-display text-5xl font-black leading-[1.1] tracking-tight text-ink md:text-6xl lg:text-7xl',
-    section: 'font-display text-3xl font-bold text-ink md:text-4xl',
-    card: 'text-xl font-bold text-ink',
+    display: 'font-display text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-[1.1] tracking-tight text-ink',
+    section: 'font-display text-2xl sm:text-3xl md:text-4xl font-bold text-ink',
+    card: 'text-lg sm:text-xl font-bold text-ink',
   }
   
   return variants[props.variant]

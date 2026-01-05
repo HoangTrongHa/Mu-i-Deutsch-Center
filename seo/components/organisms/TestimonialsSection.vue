@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-paper-dark px-4 py-20 md:px-10 border-t border-dashed border-primary/20">
+  <section class="bg-paper-dark px-4 py-16 md:py-20 md:px-10 border-t border-dashed border-primary/20">
     <div class="mx-auto max-w-7xl text-center">
-      <Heading level="2" variant="section" class="mb-12">Lưu Bút Của Học Viên</Heading>
+      <Heading level="2" variant="section" class="mb-8 md:mb-12">Lưu Bút Của Học Viên</Heading>
 
-      <div class="grid grid-cols-1 gap-10 md:grid-cols-3">
+      <div class="grid grid-cols-1 gap-6 sm:gap-8 md:gap-10 md:grid-cols-3">
         <TestimonialCard
           name="Sarah Jenkins"
           role="Tốt nghiệp B1"

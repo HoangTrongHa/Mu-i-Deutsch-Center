@@ -1,15 +1,15 @@
 <template>
-  <section class="relative overflow-hidden px-4 py-20">
-    <div class="mx-auto max-w-4xl rounded-[3rem] border border-gray-100 bg-white p-10 text-center shadow-xl md:p-16 relative">
+  <section class="relative overflow-hidden px-4 py-16 md:py-20">
+    <div class="mx-auto max-w-4xl rounded-2xl md:rounded-[3rem] border border-gray-100 bg-white p-6 sm:p-10 md:p-16 text-center shadow-xl relative">
       <div class="relative z-10">
-        <Heading level="2" variant="display" class="text-4xl md:text-5xl">
+        <Heading level="2" variant="section">
           Sẵn sàng lấp đầy ô kiến thức?
         </Heading>
-        <p class="mt-6 text-lg text-ink-light">
+        <p class="mt-4 md:mt-6 text-base md:text-lg text-ink-light">
           Tham gia cùng hơn 10.000 học viên đang chinh phục tiếng Đức với lộ trình bài bản của chúng tôi.
         </p>
         
-        <div class="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <div class="mt-6 md:mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Button variant="primary" size="lg">
             Học Thử Miễn Phí
           </Button>

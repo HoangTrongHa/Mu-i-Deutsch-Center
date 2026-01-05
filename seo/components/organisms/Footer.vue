@@ -1,7 +1,7 @@
 <template>
-  <footer class="border-t border-gray-200 bg-white pt-16 pb-8">
+  <footer class="border-t border-gray-200 bg-white pt-12 md:pt-16 pb-8">
     <div class="mx-auto max-w-7xl px-4 md:px-10">
-      <div class="grid grid-cols-1 gap-12 md:grid-cols-4">
+      <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-4">
         <!-- Brand column -->
         <div class="col-span-1 md:col-span-1">
           <div class="flex items-center gap-2 text-ink mb-4">

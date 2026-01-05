@@ -1,9 +1,9 @@
 <template>
-  <section class="bg-white/50 backdrop-blur-sm px-4 py-16 md:px-10 border-y border-dashed border-primary/20" id="about">
+  <section class="bg-white/50 backdrop-blur-sm px-4 py-12 md:py-16 md:px-10 border-y border-dashed border-primary/20" id="about">
     <div class="mx-auto max-w-7xl">
-      <div class="mb-12 text-center md:text-left">
+      <div class="mb-8 md:mb-12 text-center md:text-left">
         <Heading level="2" variant="section">Tại Sao Chọn Chúng Tôi?</Heading>
-        <p class="mt-4 max-w-2xl text-ink-light">
+        <p class="mt-4 mx-auto md:mx-0 max-w-2xl text-base md:text-lg text-ink-light">
           Phương pháp của chúng tôi kết hợp sự kỷ luật của trường lớp truyền thống với sự linh hoạt của các ứng dụng hiện đại.
         </p>
       </div>
