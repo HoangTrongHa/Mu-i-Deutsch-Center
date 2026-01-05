@@ -1,7 +1,29 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
+/* stylelint-disable-next-line at-rule-no-unknown */
+@theme {
+  --color-primary: #579bb1;
+  --color-primary-dark: #3f7a8c;
+  --color-primary-light: #e0f2f7;
+  --color-accent: #e07a5f;
+  --color-accent-hover: #c86045;
+  --color-paper: #fdfbf7;
+  --color-paper-dark: #f4f1ea;
+  --color-ink: #2c3e50;
+  --color-ink-light: #64748b;
+  --color-grid-line: rgba(87, 155, 177, 0.1);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200');
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap');
+
+/* Custom utility classes */
 .notebook-bg {
   background-color: #fdfbf7;
   background-image: 
@@ -11,16 +33,42 @@
 }
 
 .handwritten-note {
-  font-family: 'Caveat', cursive;
+  font-family: 'Bungee Shade', cursive;
   transform: rotate(-2deg);
   box-shadow: 2px 4px 8px rgba(0,0,0,0.1);
 }
 
 .handwritten-arrow {
-  font-family: 'Caveat', cursive;
+  font-family: 'Bungee Shade', cursive;
   transform: rotate(5deg);
 }
 
 .paper-shadow {
-  box-shadow: 1px 1px 0 rgba(0,0,0,0.05), 3px 3px 0 rgba(0,0,0,0.05), 5px 5px 0 rgba(0,0,0,0.05);
+  box-shadow: 1px 1px 0 rgba(0,0,0,0.05), 
+              3px 3px 0 rgba(0,0,0,0.05), 
+              5px 5px 0 rgba(0,0,0,0.05);
+}
+
+/* Material Symbols font configuration */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: 'liga';
+  font-variation-settings: 
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
 }

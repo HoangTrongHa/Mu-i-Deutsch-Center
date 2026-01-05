@@ -1,5 +1,8 @@
 <template>
-  <span :class="iconClasses">
+  <span 
+    :class="iconClasses"
+    :style="iconStyle"
+  >
     <slot />
   </span>
 </template>
@@ -16,10 +19,15 @@ const props = withDefaults(defineProps<Props>(), {
 })
 
 const iconClasses = computed(() => {
-  const base = 'material-symbols-outlined'
+  const base = 'material-symbols-outlined inline-flex items-center justify-center'
   const fill = props.filled ? 'fill-current' : ''
-  const fontSize = `text-[${props.size}px]`
   
-  return `${base} ${fill} ${fontSize}`
+  return `${base} ${fill}`
 })
+
+const iconStyle = computed(() => ({
+  fontSize: `${props.size}px`,
+  width: `${props.size}px`,
+  height: `${props.size}px`,
+}))
 </script>

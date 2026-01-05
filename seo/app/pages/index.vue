@@ -36,11 +36,7 @@ useHead({
     { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
     {
       rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Spline+Sans:wght@300;400;500;600;700&display=swap',
-    },
-    {
-      rel: 'stylesheet',
-      href: 'https://fonts.googleapis.com/css2?family=Caveat:wght@400;700&display=swap',
+      href: 'https://fonts.googleapis.com/css2?family=Bungee+Shade&display=swap',
     },
     {
       rel: 'stylesheet',

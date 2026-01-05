@@ -1,12 +1,12 @@
 <script setup lang="ts">
-interface BreadcrumbItem {
-  label: string
-  to?: string
+import Icon from '../atoms/Icon.vue'
+import type { BreadcrumbItem } from '../../types'
+
+interface Props {
+  items: BreadcrumbItem[]
 }
 
-defineProps<{
-  items: BreadcrumbItem[]
-}>()
+defineProps<Props>()
 </script>
 
 <template>
@@ -26,9 +26,11 @@ defineProps<{
         
         <Icon 
           v-if="index < items.length - 1"
-          name="chevron_right"
-          class="text-gray-400 text-sm"
-        />
+          :size="16"
+          class="text-gray-400"
+        >
+          chevron_right
+        </Icon>
       </li>
     </ol>
   </nav>

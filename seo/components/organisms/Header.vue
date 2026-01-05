@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-import Logo from '../molecules/Logo.vue'
-import NavMenu from '../molecules/NavMenu.vue'
 import Link from '../atoms/Link.vue'
 import Button from '../atoms/Button.vue'
+import Logo from '../molecules/Logo.vue'
+import NavMenu from '../molecules/NavMenu.vue'
 </script>

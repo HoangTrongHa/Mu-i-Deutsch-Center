@@ -23,8 +23,9 @@ export default {
         'grid-line': 'rgba(87, 155, 177, 0.1)',
       },
       fontFamily: {
-        'display': ['Spline Sans', 'sans-serif'],
-        'handwritten': ['Caveat', 'cursive'],
+        'sans': ['Bungee Shade', 'system-ui', 'sans-serif'],
+        'display': ['Bungee Shade', 'sans-serif'],
+        'handwritten': ['Bungee Shade', 'cursive'],
       },
       borderRadius: {
         'DEFAULT': '0.5rem',

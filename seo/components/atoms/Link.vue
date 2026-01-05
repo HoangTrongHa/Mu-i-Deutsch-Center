@@ -1,7 +1,18 @@
 <template>
+  <NuxtLink
+    v-if="isNuxtLink"
+    :to="href"
+    :class="linkClasses"
+    @click="handleClick"
+  >
+    <slot />
+  </NuxtLink>
   <a
+    v-else
     :href="href"
     :class="linkClasses"
+    :target="target"
+    :rel="rel"
     @click="handleClick"
   >
     <slot />
@@ -9,22 +20,36 @@
 </template>
 
 <script setup lang="ts">
+import type { LinkVariant } from '../../types'
+
 interface Props {
   href?: string
-  variant?: 'default' | 'nav' | 'nav-active' | 'underline'
+  variant?: LinkVariant
+  target?: '_blank' | '_self' | '_parent' | '_top'
+  external?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
   href: '#',
   variant: 'default',
+  target: '_self',
+  external: false,
 })
 
 const emit = defineEmits<{
   click: [event: MouseEvent]
 }>()
 
+const isNuxtLink = computed(() => {
+  return props.href.startsWith('/') && !props.external
+})
+
+const rel = computed(() => {
+  return props.target === '_blank' ? 'noopener noreferrer' : undefined
+})
+
 const linkClasses = computed(() => {
-  const variants = {
+  const variants: Record<LinkVariant, string> = {
     default: 'text-ink hover:text-primary transition-colors',
     nav: 'text-sm font-medium text-ink-light hover:text-primary transition-colors',
     'nav-active': 'text-sm font-medium text-ink hover:text-primary transition-colors',

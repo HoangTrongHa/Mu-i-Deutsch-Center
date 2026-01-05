@@ -1,4 +1,3 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-04',
   devtools: { enabled: true },
@@ -30,21 +29,15 @@ export default defineNuxtConfig({
           content: 'học tiếng đức, trung tâm tiếng đức, khóa học tiếng đức, luyện thi goethe, du học đức, tiếng đức hà nội, goethe zertifikat'
         },
         { name: 'author', content: 'Muối Deutsch Center' },
-        
-        // Open Graph
         { property: 'og:site_name', content: 'Muối Deutsch Center' },
         { property: 'og:type', content: 'website' },
         { property: 'og:locale', content: 'vi_VN' },
         { property: 'og:title', content: 'Muối Deutsch Center - Học tiếng Đức dễ như muối bỏ bể' },
         { property: 'og:description', content: 'Trung tâm tiếng Đức uy tín với giáo viên bản ngữ, cam kết đầu ra chứng chỉ quốc tế' },
         { property: 'og:url', content: 'https://muoideutsch.vercel.app' },
-        
-        // Twitter Card
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:title', content: 'Muối Deutsch Center' },
         { name: 'twitter:description', content: 'Học tiếng Đức dễ như muối bỏ bể!' },
-        
-        // Mobile
         { name: 'theme-color', content: '#3B82F6' },
       ],
       
@@ -55,7 +48,7 @@ export default defineNuxtConfig({
       script: [
         {
           type: 'application/ld+json',
-          children: JSON.stringify({
+          innerHTML: JSON.stringify({
             '@context': 'https://schema.org',
             '@type': 'EducationalOrganization',
             name: 'Muối Deutsch Center',
@@ -78,14 +71,12 @@ export default defineNuxtConfig({
     },
   },
 
-  // Modules
   modules: [
     '@nuxt/content',
     '@nuxtjs/sitemap',
     '@nuxtjs/robots',
   ],
 
-  // Nuxt Content Configuration
   content: {
     highlight: {
       theme: 'github-dark',
@@ -98,21 +89,31 @@ export default defineNuxtConfig({
     },
   },
 
-  // Sitemap Configuration
   sitemap: {
-    hostname: 'https://muoideutsch.vercel.app',
-    gzip: true,
+    sources: [
+      '/api/__sitemap__/urls',
+    ],
   },
 
-  // Robots Configuration
   robots: {
-    UserAgent: '*',
-    Allow: '/',
-    Sitemap: 'https://muoideutsch.vercel.app/sitemap.xml'
+    rules: [
+      {
+        UserAgent: '*',
+        Allow: '/',
+      },
+    ],
   },
 
-  // Performance
   nitro: {
     compressPublicAssets: true,
+  },
+
+  vite: {
+    vue: {
+      script: {
+        defineModel: true,
+        propsDestructure: true,
+      },
+    },
   },
 })

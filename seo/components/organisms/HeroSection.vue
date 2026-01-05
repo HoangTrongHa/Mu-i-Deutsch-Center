@@ -9,7 +9,7 @@
             <span class="relative inline-flex h-2 w-2 rounded-full bg-accent" />
           </span>
           <span class="text-xs font-semibold uppercase tracking-wider text-primary">
-            Mới: Khóa B2 Đã Ra Mắt
+            Mới: Khóa C1 Đã Ra Mắt
           </span>
         </div>
 
@@ -33,7 +33,7 @@
         </p>
 
         <div class="mt-4 flex flex-col items-center gap-4 sm:flex-row lg:justify-start">
-          <Button variant="primary" size="lg">
+          <Button variant="primary" size="lg" class="text-black">
             Đăng Ký Ngay
           </Button>
           <Button variant="outline" size="lg">
@@ -76,7 +76,7 @@
               </div>
               <div>
                 <div class="text-xs font-medium text-ink-light">Tiến độ hiện tại</div>
-                <div class="text-sm font-bold text-ink">Trình độ A2: 85%</div>
+                <div class="text-sm font-bold text-ink">Giáo trình C1: 85%</div>
               </div>
             </div>
             <div class="mt-3 h-2 w-full overflow-hidden rounded-full bg-gray-100">

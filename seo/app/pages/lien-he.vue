@@ -45,19 +45,11 @@ const submitForm = async () => {
   isSubmitting.value = true
   
   try {
-    // TODO: Tích hợp với API backend hoặc email service
-    // await $fetch('/api/contact', {
-    //   method:  'POST',
-    //   body: form.value
-    // })
-    
-    // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1500))
     
     submitSuccess.value = true
     form.value = { name: '', phone: '', email: '', course: '', message: '' }
     
-    // Hide success message after 5 seconds
     setTimeout(() => {
       submitSuccess.value = false
     }, 5000)
