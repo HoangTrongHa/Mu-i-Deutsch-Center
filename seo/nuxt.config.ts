@@ -2,6 +2,12 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-01-04',
   devtools: { enabled: true },
   
+  runtimeConfig: {
+    public: {
+      apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:3000',
+    },
+  },
+
   postcss: {
     plugins: {
       '@tailwindcss/postcss': {},
