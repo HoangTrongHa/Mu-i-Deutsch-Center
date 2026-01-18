@@ -12,7 +12,7 @@
     
     <div class="my-4 h-px w-full bg-gray-100" />
     
-    <ul class="mb-6 flex-1 space-y-2 text-sm text-ink-light">
+    <ul class="mb-6 flex-1 space-y-2 text-sm ">
       <li v-for="(feature, index) in features" :key="index" class="flex items-center gap-2">
         <Icon :size="16" :class="checkIconColor">check</Icon>
         {{ feature }}
@@ -20,7 +20,6 @@
     </ul>
     
     <Button 
-      variant="outline" 
       size="md" 
       :class="buttonClasses"
       @click="handleClick"
@@ -56,6 +55,7 @@ const config = computed(() => getLevelConfig(props.level))
 
 const levelIcon = computed(() => config.value.icon)
 const hoverBorderColor = computed(() => config.value.hoverBorder)
+const bgColor = computed(() => config.value.bgColor)
 const iconColor = computed(() => config.value.iconColor)
 const checkIconColor = computed(() => config.value.checkColor)
 const buttonClasses = computed(() => config.value.buttonClass)

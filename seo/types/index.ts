@@ -20,6 +20,13 @@ export interface Course {
   schedule: string
   features: string[]
   curriculum: string[]
+  // Styling properties
+  badgeColor?: string
+  badgeBgColor?: string
+  cardBgColor?: string
+  buttonColor?: string
+  buttonBgColor?: string
+  accentColor?: string
 }
 
 export interface BreadcrumbItem {

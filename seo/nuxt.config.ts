@@ -2,10 +2,14 @@ export default defineNuxtConfig({
   compatibilityDate: '2026-01-04',
   devtools: { enabled: true },
   
+  plugins: [
+    '~/plugins/api.ts',
+  ],
+
   runtimeConfig: {
     public: {
-      apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:3000',
-    },
+      apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:5000'
+    }
   },
 
   postcss: {

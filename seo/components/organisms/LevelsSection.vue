@@ -14,28 +14,12 @@
 
       <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
         <LevelCard
-          level="A1"
-          title="Người Mới Bắt Đầu"
-          description="Nền tảng & Cơ bản. Bắt đầu hành trình tại đây."
-          :features="['Chào hỏi cơ bản', 'Số đếm & Thời gian', '8 Tuần']"
-        />
-        <LevelCard
-          level="A2"
-          title="Sơ Cấp"
-          description="Giao tiếp hàng ngày. Xây dựng sự tự tin."
-          :features="['Thói quen hàng ngày', 'Thì quá khứ', '10 Tuần']"
-        />
-        <LevelCard
-          level="B1"
-          title="Trung Cấp"
-          description="Sử dụng độc lập. Thảo luận ý kiến."
-          :features="['Câu phức', 'Công việc & Du lịch', '12 Tuần']"
-        />
-        <LevelCard
-          level="B2"
-          title="Trung Cao Cấp"
-          description="Thành thạo nâng cao. Trình độ chuyên nghiệp."
-          :features="['Chủ đề trừu tượng', 'Truyền thông bản ngữ', '14 Tuần']"
+          v-for="course in displayedCourses"
+          :key="course.level"
+          :level="course.level"
+          :title="course.title"
+          :description="course.description"
+          :features="course.features.slice(0, 3)"
         />
       </div>
     </div>
@@ -43,7 +27,17 @@
 </template>
 
 <script setup lang="ts">
+import { computed } from 'vue'
 import Heading from '../atoms/Heading.vue'
 import Icon from '../atoms/Icon.vue'
 import LevelCard from '../molecules/LevelCard.vue'
+import { useCourses } from '../../composables/users/useCourses'
+import { AVAILABLE_LEVELS } from '../../constants/levels'
+
+const { courses } = useCourses()
+
+// Chỉ hiển thị các cấp độ có sẵn (A1, A2, B1, B2)
+const displayedCourses = computed(() => {
+  return courses.value.filter(course => AVAILABLE_LEVELS.includes(course.level))
+})
 </script>

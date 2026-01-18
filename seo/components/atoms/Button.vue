@@ -13,15 +13,16 @@
 import { computed } from 'vue'
 import type { ButtonVariant, ButtonSize } from '../../types'
 
+type Variant = 'primary' | 'secondary' | 'outline' | 'ghost' | 'level'
+
 interface Props {
-  variant?: ButtonVariant
+  variant?: Variant
   size?: ButtonSize
   type?: 'button' | 'submit' | 'reset'
   disabled?: boolean
 }
 
 const props = withDefaults(defineProps<Props>(), {
-  variant: 'primary',
   size: 'md',
   type: 'button',
   disabled: false,
@@ -37,14 +38,21 @@ const handleClick = (event: MouseEvent) => {
   }
 }
 
-const buttonClasses = computed(() => {
-  const base = 'flex items-center justify-center gap-2 rounded-full font-bold transition-all'
+const variantClasses = computed(() => {
+  if (!props.variant) return '' // Không có variant = không có default styles
   
-  const variants: Record<ButtonVariant, string> = {
-    primary: 'bg-accent text-white hover:bg-accent-hover hover:scale-105 shadow-md shadow-accent/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
-    secondary: 'bg-primary text-white hover:bg-primary-dark hover:scale-105 shadow-md shadow-primary/20 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100',
-    outline: 'border border-ink/10 bg-white text-ink hover:border-primary/50 hover:text-primary hover:bg-primary-light/20 disabled:opacity-50 disabled:cursor-not-allowed',
+  const variants = {
+    primary: 'bg-primary text-white hover:bg-primary-dark',
+    secondary: 'bg-secondary text-white hover:bg-secondary-dark',
+    outline: 'border border-ink/10 bg-white text-ink hover:border-primary/50 hover:text-primary hover:bg-primary-light/20',
+    ghost: 'bg-transparent text-ink hover:bg-gray-100',
   }
+  
+  return variants[props.variant]
+})
+
+const buttonClasses = computed(() => {
+  const base = 'flex items-center justify-center gap-2 rounded-full font-bold transition-all cursor-pointer disabled:cursor-not-allowed disabled:opacity-50'
   
   const sizes: Record<ButtonSize, string> = {
     sm: 'h-10 px-5 text-sm',
@@ -52,6 +60,6 @@ const buttonClasses = computed(() => {
     lg: 'h-14 px-8 text-lg',
   }
   
-  return `${base} ${variants[props.variant]} ${sizes[props.size]}`
+  return `${base} ${variantClasses.value} ${sizes[props.size]}`
 })
 </script>
