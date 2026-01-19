@@ -88,6 +88,29 @@ return {
 - ✅ **NÊN** log errors cho debugging
 - ✅ Plugin đã handle common errors (401, 403, 500)
 
+### 7. File Organization
+- ✅ **PHẢI** tạo file trong folder `composables/` ở root level
+- ❌ **KHÔNG BAO GIỜ** tạo trong `app/composables/`
+- ✅ Structure: `composables/users/` và `composables/admin/`
+- ✅ Một file = một composable
+- ✅ Tên file phải match với function name: `useCourses.ts` exports `useCourses()`
+
+**Ví dụ đúng:**
+```
+composables/
+├── users/
+│   ├── useCourses.ts
+│   └── useAuth.ts
+└── admin/
+    ├── useCoursesApi.ts
+    └── useTeachersApi.ts
+```
+
+**Ví dụ SAI:**
+```
+❌ app/composables/  (KHÔNG tạo trong app/)
+```
+
 ## Common Patterns
 
 ### Fetch on Mount

@@ -17,17 +17,17 @@
       <!-- Header -->
       <div class="flex justify-between items-center mb-8">
         <div>
-          <h1 class="text-3xl font-bold text-gray-900">Quản Lý Khóa Học</h1>
-          <p class="mt-2 text-sm text-gray-600">Danh sách tất cả các khóa học tiếng Đức</p>
+          <h1 class="text-3xl font-bold text-gray-900">Quản Lý Giáo Viên</h1>
+          <p class="mt-2 text-sm text-gray-600">Danh sách tất cả các giáo viên</p>
         </div>
         <NuxtLink
-          to="/admin/courses/create"
+          to="/admin/teachers/create"
           class="inline-flex items-center px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-accent hover:bg-accent/90"
         >
           <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
           </svg>
-          Tạo Khóa Học Mới
+          Thêm Giáo Viên Mới
         </NuxtLink>
       </div>
 
@@ -37,7 +37,7 @@
           <input
             v-model="searchQuery"
             type="text"
-            placeholder="Tìm kiếm..."
+            placeholder="Tìm kiếm theo tên, email..."
             class="px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
           />
           <select
@@ -68,7 +68,7 @@
         <p class="text-red-800">{{ error }}</p>
       </div>
 
-      <!-- Courses Table -->
+      <!-- Teachers Table -->
       <div class="bg-white shadow rounded-lg overflow-hidden relative">
         <!-- Loading Overlay -->
         <div v-if="loading" class="absolute inset-0 bg-white bg-opacity-75 flex items-center justify-center z-10">
@@ -80,56 +80,59 @@
         <table class="min-w-full divide-y divide-gray-200">
           <thead class="bg-gray-50">
             <tr>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Khóa học</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Cấp độ</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giá</th>
-              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Học viên</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Giáo viên</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Chuyên môn</th>
+              <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Kinh nghiệm</th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Trạng thái</th>
               <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Thao tác</th>
             </tr>
           </thead>
           <tbody class="bg-white divide-y divide-gray-200">
-            <tr v-for="course in courses" :key="course.id" class="hover:bg-gray-50">
+            <tr v-for="teacher in teachers" :key="teacher.id" class="hover:bg-gray-50">
               <td class="px-6 py-4 whitespace-nowrap">
                 <div class="flex items-center">
-                  <div>
-                    <div class="text-sm font-medium text-gray-900">{{ course.title }}</div>
-                    <div class="text-sm text-gray-500">{{ course.duration }}</div>
+                  <div class="flex-shrink-0 h-10 w-10">
+                    <div class="h-10 w-10 rounded-full bg-accent text-white flex items-center justify-center font-semibold">
+                      {{ teacher.name.charAt(0).toUpperCase() }}
+                    </div>
+                  </div>
+                  <div class="ml-4">
+                    <div class="text-sm font-medium text-gray-900">{{ teacher.name }}</div>
+                    <div class="text-sm text-gray-500">{{ teacher.email }}</div>
                   </div>
                 </div>
               </td>
-              <td class="px-6 py-4 whitespace-nowrap">
-                <span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800">
-                  {{ course.level }}
-                </span>
+              <td class="px-6 py-4">
+                <div class="flex flex-wrap gap-1">
+                  <span 
+                    v-for="level in teacher.specializations" 
+                    :key="level"
+                    class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-blue-100 text-blue-800"
+                  >
+                    {{ level }}
+                  </span>
+                </div>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-900">
-                <div v-if="course.discountPrice" class="flex flex-col">
-                  <span class="line-through text-gray-400">{{ course.price.toLocaleString('vi-VN') }}đ</span>
-                  <span class="font-semibold text-accent">{{ course.discountPrice.toLocaleString('vi-VN') }}đ</span>
-                </div>
-                <span v-else class="font-semibold">{{ course.price.toLocaleString('vi-VN') }}đ</span>
-              </td>
-              <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                {{ course.maxStudents }} học viên
+                {{ teacher.experience }} năm
               </td>
               <td class="px-6 py-4 whitespace-nowrap">
                 <span
-                  :class="course.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
+                  :class="teacher.isActive ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'"
                   class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full"
                 >
-                  {{ course.isActive ? 'Hoạt động' : 'Tạm dừng' }}
+                  {{ teacher.isActive ? 'Hoạt động' : 'Tạm dừng' }}
                 </span>
               </td>
               <td class="px-6 py-4 whitespace-nowrap text-sm font-medium">
                 <NuxtLink
-                  :to="`/admin/courses/${course.id}/edit`"
+                  :to="`/admin/teachers/${teacher.id}/edit`"
                   class="text-accent hover:text-accent/80 mr-4"
                 >
                   Sửa
                 </NuxtLink>
                 <button
-                  @click="confirmDelete(course)"
+                  @click="confirmDelete(teacher)"
                   class="text-red-600 hover:text-red-900"
                 >
                   Xóa
@@ -174,7 +177,7 @@
         <div class="bg-white rounded-lg p-6 max-w-md w-full mx-4">
           <h3 class="text-lg font-medium text-gray-900 mb-4">Xác nhận xóa</h3>
           <p class="text-sm text-gray-500 mb-6">
-            Bạn có chắc chắn muốn xóa khóa học "<strong>{{ courseToDelete?.title }}</strong>"? Hành động này không thể hoàn tác.
+            Bạn có chắc chắn muốn xóa giáo viên "<strong>{{ teacherToDelete?.name }}</strong>"? Hành động này không thể hoàn tác.
           </p>
           <div class="flex justify-end gap-3">
             <button
@@ -184,7 +187,7 @@
               Hủy
             </button>
             <button
-              @click="deleteCourse"
+              @click="deleteTeacher"
               class="px-4 py-2 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-red-600 hover:bg-red-700"
             >
               Xóa
@@ -197,16 +200,19 @@
 </template>
 
 <script setup lang="ts">
+import type { Teacher } from '~/types'
+import { useTeachersApi } from '~/../composables/admin/useTeachersApi'
+
 useHead({
-  title: 'Quản Lý Khóa Học',
+  title: 'Quản Lý Giáo Viên',
   meta: [
     { name: 'robots', content: 'noindex, nofollow' }
   ]
 })
 
-const { $api } = useNuxtApp()
+const { fetchTeachers, deleteTeacher: deleteTeacherApi } = useTeachersApi()
 
-const courses = ref<any[]>([])
+const teachers = ref<Teacher[]>([])
 const loading = ref(false)
 const error = ref('')
 
@@ -223,24 +229,22 @@ const pagination = ref({
 
 const showDeleteModal = ref(false)
 let debounceTimer: NodeJS.Timeout | null = null
-const courseToDelete = ref<any>(null)
+const teacherToDelete = ref<Teacher | null>(null)
 
-const loadCourses = async () => {
+const loadTeachers = async () => {
   try {
     loading.value = true
     error.value = ''
 
-    const query = new URLSearchParams()
-    query.append('page', String(pagination.value.page))
-    query.append('limit', String(pagination.value.limit))
+    const response = await fetchTeachers({
+      page: pagination.value.page,
+      limit: pagination.value.limit,
+      search: searchQuery.value || undefined,
+      level: levelFilter.value as any || undefined,
+      isActive: statusFilter.value ? statusFilter.value === 'true' : undefined,
+    })
     
-    if (searchQuery.value) query.append('search', searchQuery.value)
-    if (levelFilter.value) query.append('level', levelFilter.value)
-    if (statusFilter.value) query.append('isActive', statusFilter.value)
-
-    const response: any = await $api(`/courses?${query.toString()}`)
-    
-    courses.value = response.data
+    teachers.value = response.data
     pagination.value = {
       page: response.meta.page,
       limit: response.meta.limit,
@@ -248,7 +252,7 @@ const loadCourses = async () => {
       totalPages: response.meta.totalPages,
     }
   } catch (err: any) {
-    error.value = err.data?.message || err.message || 'Không thể tải danh sách khóa học'
+    error.value = err.data?.message || err.message || 'Không thể tải danh sách giáo viên'
   } finally {
     loading.value = false
   }
@@ -257,26 +261,24 @@ const loadCourses = async () => {
 const goToPage = (page: number) => {
   if (page < 1 || page > pagination.value.totalPages) return
   pagination.value.page = page
-  loadCourses()
+  loadTeachers()
 }
 
-const confirmDelete = (course: any) => {
-  courseToDelete.value = course
+const confirmDelete = (teacher: Teacher) => {
+  teacherToDelete.value = teacher
   showDeleteModal.value = true
 }
 
-const deleteCourse = async () => {
-  if (!courseToDelete.value) return
+const deleteTeacher = async () => {
+  if (!teacherToDelete.value) return
 
   try {
-    await $api(`/courses/${courseToDelete.value.id}`, {
-      method: 'DELETE'
-    })
+    await deleteTeacherApi(teacherToDelete.value.id)
     showDeleteModal.value = false
-    courseToDelete.value = null
-    await loadCourses()
+    teacherToDelete.value = null
+    await loadTeachers()
   } catch (err: any) {
-    error.value = err.data?.message || err.message || 'Không thể xóa khóa học'
+    error.value = err.data?.message || err.message || 'Không thể xóa giáo viên'
   }
 }
 
@@ -287,11 +289,11 @@ watch([searchQuery, levelFilter, statusFilter], () => {
   
   debounceTimer = setTimeout(() => {
     pagination.value.page = 1
-    loadCourses()
+    loadTeachers()
   }, 500)
 })
 
 onMounted(() => {
-  loadCourses()
+  loadTeachers()
 })
 </script>

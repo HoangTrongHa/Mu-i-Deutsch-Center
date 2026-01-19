@@ -68,10 +68,11 @@
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn</label>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn *</label>
             <textarea
-              v-model="form.shortDescription"
+              v-model="form.description"
               rows="2"
+              required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
               placeholder="Mô tả ngắn gọn về khóa học..."
             />
@@ -80,7 +81,7 @@
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả chi tiết *</label>
             <textarea
-              v-model="form.description"
+              v-model="form.longDescription"
               rows="4"
               required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
@@ -106,15 +107,27 @@
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Lịch học *</label>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Số buổi học *</label>
               <input
-                v-model="form.schedule"
-                type="text"
+                v-model.number="form.sessions"
+                type="number"
                 required
+                min="1"
                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
-                placeholder="VD: Thứ 2, 4, 6 (18:00-20:00)"
+                placeholder="VD: 36"
               />
             </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Lịch học *</label>
+            <input
+              v-model="form.schedule"
+              type="text"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
+              placeholder="VD: Thứ 2, 4, 6 (18:00-20:00)"
+            />
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -253,6 +266,9 @@
 </template>
 
 <script setup lang="ts">
+import { useCoursesApi } from '~/../composables/admin/useCoursesApi'
+import { useTeachersApi } from '~/../composables/admin/useTeachersApi'
+
 useHead({
   title: 'Tạo Khóa Học Mới',
   meta: [
@@ -260,8 +276,8 @@ useHead({
   ]
 })
 
-const config = useRuntimeConfig()
-const apiBase = config.public.apiUrl
+const { createCourse } = useCoursesApi()
+const { fetchTeachers } = useTeachersApi()
 const router = useRouter()
 
 const loading = ref(false)
@@ -276,8 +292,9 @@ const form = ref({
   level: '',
   teacherId: '',
   description: '',
-  shortDescription: '',
+  longDescription: '',
   duration: '',
+  sessions: 0,
   schedule: '',
   price: 0,
   discountPrice: null as number | null,
@@ -305,10 +322,10 @@ const removeCurriculum = (index: number) => {
 }
 
 const handleSubmit = async () => {
-  try {
-    loading.value = true
-    error.value = ''
+  loading.value = true
+  error.value = ''
 
+  try {
     // Clean up empty features and curriculum
     const data = {
       ...form.value,
@@ -318,25 +335,20 @@ const handleSubmit = async () => {
       discountPrice: form.value.discountPrice || undefined,
     }
 
-    await $fetch(`${apiBase}/courses`, {
-      method: 'POST',
-      body: data
-    })
+    await createCourse(data)
     router.push('/admin/courses')
-  } catch (err: any) {
-    error.value = err.data?.message || err.message || 'Không thể tạo khóa học'
   } finally {
     loading.value = false
   }
 }
 
-// Load teachers (you'll need to create this API endpoint)
+// Load teachers
 onMounted(async () => {
-  // TODO: Load teachers from API
-  // For now using mock data
-  teachers.value = [
-    { id: 'teacher-1-id', name: 'Frau Schmidt' },
-    { id: 'teacher-2-id', name: 'Herr Müller' },
-  ]
+  try {
+    const response = await fetchTeachers({ page: 1, limit: 100 })
+    teachers.value = response.data.map(t => ({ id: t.id, name: t.name }))
+  } catch {
+    teachers.value = []
+  }
 })
 </script>

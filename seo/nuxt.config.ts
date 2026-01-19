@@ -1,11 +1,26 @@
 export default defineNuxtConfig({
   compatibilityDate: '2026-01-04',
   devtools: { enabled: true },
-  
-  plugins: [
-    '~/plugins/api.ts',
-  ],
 
+
+  // Explicitly register plugins
+  plugins: [
+    '~/plugins/api.ts'
+  ],
+  
+  imports: {
+    dirs: [
+      'composables/**'  // Scan tất cả subfolder
+    ],
+    // Đảm bảo auto-import hoạt động cho cả SSR
+    global: true
+  },
+  
+  alias: {
+    '@': '.',
+    '~': '.',
+  },
+  
   runtimeConfig: {
     public: {
       apiUrl: process.env.NUXT_PUBLIC_API_URL || 'http://localhost:5000'

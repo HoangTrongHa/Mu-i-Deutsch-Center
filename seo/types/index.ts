@@ -10,17 +10,29 @@ export type HeadingVariant = 'display' | 'section' | 'card'
 export type LinkVariant = 'default' | 'nav' | 'nav-active' | 'underline'
 
 export interface Course {
+  id: string
   level: Level
   title: string
+  slug: string
   description: string
   longDescription: string
   duration: string
-  sessions: string
+  sessions: number
   price: number
+  discountPrice?: number | null
   schedule: string
   features: string[]
   curriculum: string[]
-  // Styling properties
+  isActive: boolean
+  maxStudents: number
+  currentStudents: number
+  startDate: Date | null
+  endDate: Date | null
+  thumbnailUrl: string | null
+  teacherId: string | null
+  createdAt: Date
+  updatedAt: Date
+  // Optional styling properties
   badgeColor?: string
   badgeBgColor?: string
   cardBgColor?: string
@@ -49,4 +61,20 @@ export interface LevelConfig {
   bgColor: string
   textColor: string
   borderColor: string
+}
+
+export interface Teacher {
+  id: string
+  name: string
+  email: string
+  phone?: string
+  avatar?: string
+  specialization: Level[]
+  bio?: string
+  experience: number
+  education?: string
+  certifications?: string[]
+  isActive: boolean
+  createdAt?: string
+  updatedAt?: string
 }

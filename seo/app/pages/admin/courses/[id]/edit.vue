@@ -71,10 +71,11 @@
           </div>
 
           <div>
-            <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn</label>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả ngắn *</label>
             <textarea
-              v-model="form.shortDescription"
+              v-model="form.description"
               rows="2"
+              required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
             />
           </div>
@@ -82,7 +83,7 @@
           <div>
             <label class="block text-sm font-medium text-gray-700 mb-1">Mô tả chi tiết *</label>
             <textarea
-              v-model="form.description"
+              v-model="form.longDescription"
               rows="4"
               required
               class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
@@ -106,14 +107,25 @@
             </div>
 
             <div>
-              <label class="block text-sm font-medium text-gray-700 mb-1">Lịch học *</label>
+              <label class="block text-sm font-medium text-gray-700 mb-1">Số buổi học *</label>
               <input
-                v-model="form.schedule"
-                type="text"
+                v-model.number="form.sessions"
+                type="number"
                 required
+                min="1"
                 class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
               />
             </div>
+          </div>
+
+          <div>
+            <label class="block text-sm font-medium text-gray-700 mb-1">Lịch học *</label>
+            <input
+              v-model="form.schedule"
+              type="text"
+              required
+              class="w-full px-4 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-accent focus:border-transparent"
+            />
           </div>
 
           <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
@@ -247,6 +259,9 @@
 </template>
 
 <script setup lang="ts">
+import { useCoursesApi } from '~/../composables/admin/useCoursesApi'
+import { useTeachersApi } from '~/../composables/admin/useTeachersApi'
+
 useHead({
   title: 'Chỉnh Sửa Khóa Học',
   meta: [
@@ -254,8 +269,8 @@ useHead({
   ]
 })
 
-const config = useRuntimeConfig()
-const apiBase = config.public.apiUrl
+const { fetchCourse, updateCourse } = useCoursesApi()
+const { fetchTeachers } = useTeachersApi()
 const route = useRoute()
 const router = useRouter()
 
@@ -275,8 +290,9 @@ const form = ref({
   level: '',
   teacherId: '',
   description: '',
-  shortDescription: '',
+  longDescription: '',
   duration: '',
+  sessions: 0,
   schedule: '',
   price: 0,
   discountPrice: null as number | null,
@@ -284,8 +300,6 @@ const form = ref({
   startDate: '',
   features: [] as string[],
   curriculum: [] as string[],
-  prerequisites: [] as string[],
-  targetAudience: [] as string[],
   isActive: true,
 })
 
@@ -310,15 +324,16 @@ const loadCourse = async () => {
     loadingCourse.value = true
     error.value = ''
     
-    const course: any = await $fetch(`${apiBase}/courses/${courseId}`)
+    const course: any = await fetchCourse(courseId)
     
     form.value = {
       title: course.title,
       level: course.level,
       teacherId: course.teacherId,
       description: course.description,
-      shortDescription: course.shortDescription || '',
+      longDescription: course.longDescription || '',
       duration: course.duration,
+      sessions: course.sessions || 0,
       schedule: course.schedule,
       price: course.price,
       discountPrice: course.discountPrice,
@@ -326,8 +341,6 @@ const loadCourse = async () => {
       startDate: course.startDate ? new Date(course.startDate).toISOString().split('T')[0] : '',
       features: course.features || [],
       curriculum: course.curriculum || [],
-      prerequisites: course.prerequisites || [],
-      targetAudience: course.targetAudience || [],
       isActive: course.isActive,
     }
   } catch (err: any) {
@@ -338,33 +351,32 @@ const loadCourse = async () => {
 }
 
 const handleSubmit = async () => {
-  try {
-    loading.value = true
-    error.value = ''
+  loading.value = true
+  error.value = ''
 
+  try {
     const data = {
       ...form.value,
       features: form.value.features.filter(f => f.trim()),
       curriculum: form.value.curriculum.filter(c => c.trim()),
-      prerequisites: form.value.prerequisites.filter(p => p.trim()),
-      targetAudience: form.value.targetAudience.filter(t => t.trim()),
       startDate: form.value.startDate ? new Date(form.value.startDate) : undefined,
       discountPrice: form.value.discountPrice || undefined,
     }
 
-    await $fetch(`${apiBase}/courses/${courseId}`, {
-      method: 'PATCH',
-      body: data
-    })
+    await updateCourse(courseId, data)
     router.push('/admin/courses')
-  } catch (err: any) {
-    error.value = err.data?.message || err.message || 'Không thể cập nhật khóa học'
   } finally {
     loading.value = false
   }
 }
 
-onMounted(() => {
-  loadCourse()
+onMounted(async () => {
+  await loadCourse()
+  try {
+    const response = await fetchTeachers({ page: 1, limit: 100 })
+    teachers.value = response.data.map(t => ({ id: t.id, name: t.name }))
+  } catch {
+    teachers.value = []
+  }
 })
 </script>

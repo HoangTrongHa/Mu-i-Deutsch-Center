@@ -1,12 +1,17 @@
-import { onMounted, ref, computed, readonly } from 'vue'
-import type { Course, Level } from '../types'
+import type { Course, Level } from '~/types'
+
 export const useCourses = () => {
-  const { $api } = useNuxtApp()
   const courses = ref<Course[]>([])
   const loading = ref(false)
   const error = ref<Error | null>(null)
 
   const fetchCourses = async () => {
+    const { $api } = useNuxtApp()
+    
+    console.log('useNuxtApp:', useNuxtApp())
+    console.log('$api:', $api)
+    console.log('typeof $api:', typeof $api)
+    
     loading.value = true
     error.value = null
     
